@@ -1,0 +1,16 @@
+source "$MY_ROOT/lib/colors"
+
+info() {
+  local msg=$1
+  echo -e "${f_green}${msg}${f_default}"
+}
+
+warn() {
+  local msg=$1
+  echo -e "${f_blue}${msg}${f_default}"
+}
+
+error() {
+  local msg=$1
+  echo -e "${f_red}${msg}${f_default}"
+}
