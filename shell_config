@@ -21,3 +21,6 @@ function switch_py()
 
     python --version
 }
+
+CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
+export MY_ROOT="$CWD"
