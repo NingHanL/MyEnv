@@ -112,8 +112,3 @@ nnoremap <C-H> <C-W><C-H>
 " 80 characters ruler
 highlight ColorColumn ctermbg=gray
 set colorcolumn=80
-
-" ctags
-set tags=/home/ninghanx/Tags/linux/tags
-set tags+=/home/ninghanx/Tags/otc_kernel_qa-ts_ltp_ddt/tags
-set tags+=/home/ninghanx/Tags/ltp/tags
