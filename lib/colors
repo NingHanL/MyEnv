@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# foreground colors
+f_default="\e[39m"
+f_black="\e[30m"
+f_red="\e[31m"
+f_green="\e[32m"
+f_yellow="\e[33m"
+f_blue="\e[34m"
+f_magenta="\e[35m"
+f_cyan="\e[36m"
+f_lightgray="\e[37m"
+
+# background colors
+b_default="\e[49m"
+b_black="\e[40m"
+b_red="\e[41m"
+b_green="\e[42m"
+b_yellow="\e[43m"
+b_blue="\e[44m"
+b_magenta="\e[45m"
+b_cyan="\e[46m"
+b_lightgray="\e[47m"
+b_darkgray="\e[100m"
+b_lightred="\e[101m"
+b_lightgreen="\e[102m"
+b_lightyellow="\e[103m"
+b_blue="\e[104m"
+b_lightmagenta="\e[105m"
+b_lightcyan="\e[106m"
+b_white="\e[107m"
+
+
