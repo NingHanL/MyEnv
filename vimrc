@@ -26,6 +26,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -101,6 +103,10 @@ set t_Co=256
 
 " TagBarToggle
 nmap <F3> :TagbarToggle<CR>
+
+" ctrlp setttings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 
 " split navigations ctrl + [h,j,k,l]
