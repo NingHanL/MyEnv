@@ -1,0 +1,44 @@
+#!/bin/bash
+
+DDT_BUILD_TARGET="upstream"                                                     
+DDT_KERNEL_DIR="/home/ninghanx/work/linux"                                      
+DDT_SOURCE_DIR="/home/ninghanx/work/otc_kernel_qa-ts_ltp_ddt"                   
+DDT_BUILD_DIR="/home/ninghanx/work/backup/otc_kernel_qa-ts_ltp_ddt"             
+DDT_INSTALL_DIR='/home/ninghanx/work/build/'                                    
+DDT_PKG_NAME="ltp-ddt_$(date "+%Y%m%d")"
+
+function build_ddt()                                                               
+{                                                                                  
+  # script and variables checking                                                  
+  [ -n "$DDT_BUILD_TARGET"   ] || echo "build target not provided!"                 
+  [ -n "$DDT_KERNEL_DIR"   ] || echo "kernel dir not provided!"                     
+  [ -n "$DDT_SOURCE_DIR"   ] || echo "source code dir not provided!"                
+  [ -n "$DDT_BUILD_DIR"   ] || echo "build dir not provided!"                       
+
+  # update build directory                                                         
+  if [ -e "$DDT_BUILD_DIR"   ]; then                                                
+    rm -rf $DDT_BUILD_DIR &> /dev/null                                             
+    [ -e "$DDT_BUILD_DIR"   ] && echo "fail to clean build directory!"              
+
+    mkdir -p $DDT_BUILD_DIR                                                        
+    cp -r $DDT_SOURCE_DIR/* $DDT_BUILD_DIR                                         
+    [ -e "$DDT_BUILD_DIR"   ] || echo "fail to update build directory!"             
+  else                                                                             
+    mkdir -p $DDT_BUILD_DIR                                                        
+    cp -r $DDT_SOURCE_DIR/* $DDT_BUILD_DIR                                         
+    [ -e "$DDT_BUILD_DIR"   ] || echo "fail to update build directory!"             
+  fi                                                                               
+
+  cd "$DDT_BUILD_DIR" || exit                                                      
+
+  make autotools                                                                   
+  ./configure --prefix="${DDT_INSTALL_DIR}/${DDT_BUILD_TARGET}/${DDT_PKG_NAME}" --with-open-posix-testsuite
+  [ $? -ne 0  ] && exit 1                                                           
+
+  make || exit 1                                                                
+
+  make SKIP_IDCHECK=1 install                                                   
+  [ $? -ne 0  ] && exit 1                                                             
+} 
+
+build_ddt
