@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function switch_py() {
+  local des_file="python$1"
+  local bin_path="/usr/bin"
+  local python_symbol="/usr/bin/python"
+
+  if [ ! -f "/usr/bin/$des_file" ]; then
+    echo "$des_file is not installed!"
+    return 1
+  else
+    sudo ln -sf "$bin_path/$des_file" "$python_symbol"
+  fi
+
+  python --version
+}
+
+switch_py "$1"

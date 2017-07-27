@@ -5,22 +5,5 @@ alias gitd='git diff'
 alias gitc='git checkout'
 alias gitcb='git checkout -b'
 
-function switch_py()
-{
-    local des_file="python$1"
-    local bin_path="/usr/bin"
-    local python_symbol="/usr/bin/python"
-    local des_version=""
-
-    if [ ! -f "/usr/bin/$des_file" ]; then
-        echo "$des_file is not installed!"
-        return 1
-    else
-        sudo ln -sf $bin_path/$des_file $python_symbol
-    fi
-
-    python --version
-}
-
 CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 export MY_ROOT="$CWD"
