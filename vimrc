@@ -28,6 +28,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -118,3 +119,11 @@ nnoremap <C-H> <C-W><C-H>
 " 80 characters ruler
 highlight ColorColumn ctermbg=gray
 set colorcolumn=80
+
+" disable swapfile
+set noswapfile
+
+" highlight trailing whitespace
+match ErrorMsg '\s\+$'
+" delete trailing whitespace
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
