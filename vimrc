@@ -127,3 +127,7 @@ set noswapfile
 match ErrorMsg '\s\+$'
 " delete trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+
+" highlight tabs with '>-' symbols
+set list
+set listchars=tab:>-
