@@ -1,0 +1,20 @@
+#!/bin/bash
+
+fname=$1
+
+files=( $(find -name "*$fname*") )
+if [ "${#files[@]}" -eq 0 ]; then
+  echo "No file found!"
+  exit 1
+elif [ "${#files[@]}" -eq 1 ]; then
+  vim "${files[0]}"
+else
+  iter=0
+  for file in "${files[@]}"; do
+    echo "$iter --> $file"
+    iter=$((iter + 1))
+  done
+
+  read fileno
+  vim "${files[${fileno}]}"
+fi
