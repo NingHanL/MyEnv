@@ -1,8 +1,14 @@
 #!/bin/bash
 
 fname=$1
+pattern=$2
 
-files=( $(find -name "*$fname*") )
+if [[ -n "$pattern" ]]; then
+  files=( $(find -name "*$fname*" | grep "$pattern") )
+else
+  files=( $(find -name "*$fname*") )
+fi
+
 if [ "${#files[@]}" -eq 0 ]; then
   echo "No file found!"
   exit 1
