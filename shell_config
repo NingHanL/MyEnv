@@ -1,10 +1,13 @@
 alias gits='git status'
 alias gitl='git log'
+alias gitlp='git log -p'
 alias gitb='git branch'
+alias gitbr='git branch -r'
 alias gitd='git diff'
 alias gitc='git checkout'
 alias gitcb='git checkout -b'
 alias gitbD='git branch -D'
+
 
 CWD="$(cd -P -- "$(dirname -- "$0")" && pwd -P)"
 export MY_ROOT="$CWD"
