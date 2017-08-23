@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+
+if sys.hexversion > 0x3000000:
+    pipv = 'pip3'
+else:
+    pipv = 'pip'
+
+package = sys.argv[1]
+
+command = '{} install {} -i http://pypi.mirrors.ustc.edu.cn/simple \
+    --trusted-host pypi.mirrors.ustc.edu.cn'.format(pipv, package)
+print(command)
+
+os.system(command)
