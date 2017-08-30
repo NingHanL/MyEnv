@@ -31,7 +31,6 @@ function build_ddt()
 
   cd "$DDT_BUILD_DIR" || exit
 
-  autoreconf --install
   make autotools
   ./configure --prefix="${DDT_INSTALL_DIR}/${DDT_BUILD_TARGET}/${DDT_PKG_NAME}" --with-open-posix-testsuite
   [ $? -ne 0  ] && exit 1
