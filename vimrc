@@ -130,6 +130,7 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 
 " highlight tabs with '>-' symbols
 set list
-set listchars=tab:>-
+set listchars=tab:.\.
+" set listchars=tab:>-
 " replace tabs with spaces
 nnoremap <Leader>rt :retab<CR>
