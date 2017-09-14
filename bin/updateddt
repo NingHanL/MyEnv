@@ -1,9 +1,0 @@
-#!/usr/bin/expect
-
-set repo /home/ninghanx/work/otc_kernel_qa-ts_ltp_ddt
-
-spawn git -C $repo pull
-expect "Password for 'https://ninghanx@git-ger-5.devtools.intel.com':" {
-    send "Iversion@654321\n"
-}
-interact
