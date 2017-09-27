@@ -68,7 +68,7 @@ let g:neocomplcache_enable_smart_case = 1
 " LineNumbers settings
 set number
 func ToggleNumber()
-	set number!
+    set number!
 endfunc
 map <c-n> :call ToggleNumber()<cr>
 
